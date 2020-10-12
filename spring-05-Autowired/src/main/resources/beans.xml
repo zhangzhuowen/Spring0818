@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    <bean id="cat11" class="com.navinfo.pojo.Cat"></bean>
+    <bean id="cat12" class="com.navinfo.pojo.Cat"></bean>
+    <bean id="dog22" class="com.navinfo.pojo.Dog"></bean>
+    <bean id="people" class="com.navinfo.pojo.People"></bean>-->
+
+    <bean class="com.navinfo.pojo.Cat"></bean>
+    <bean class="com.navinfo.pojo.Dog"></bean>
+    <bean id="people" class="com.navinfo.pojo.People"></bean>
+
+<!--    &lt;!&ndash; byName (按名称自动装配) 将查找其类中所有的set方法名
+         byType 和自己对象属性类型相同的bean（必须保证上下文中全局唯一）
+    &ndash;&gt;
+    <bean id="person" class="com.navinfo.pojo.People" autowire="byType">
+        <property name="name" value="zzw"></property>
+    </bean>
+    -->
+    <context:annotation-config></context:annotation-config>
+</beans>
