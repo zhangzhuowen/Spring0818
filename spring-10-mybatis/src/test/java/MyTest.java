@@ -4,6 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,8 +17,17 @@ import java.io.InputStream;
  */
 public class MyTest {
 
+
     @Test
-    public void test() throws IOException {
+    public void testMybatisSpring() throws IOException {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserMapper userMapper = context.getBean("userMapper", UserMapper.class);
+
+        System.out.println(userMapper.selectUser());
+    }
+
+    @Test
+    public void testMybatis() throws IOException {
         String file = "mybatis-config.xml";
         InputStream in = Resources.getResourceAsStream(file);
 
