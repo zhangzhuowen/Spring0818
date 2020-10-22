@@ -19,12 +19,26 @@ public class MyTest {
 
 
     @Test
-    public void testMybatisSpring() throws IOException {
+    public void testMybatisSpring1() throws IOException {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         UserMapper userMapper = context.getBean("userMapper", UserMapper.class);
 
         System.out.println(userMapper.selectUser());
     }
+
+    /**
+     * testMybatisSpring2(自己在XML中创建sqlSession) 比  testMybatisSpring1好（继承类帮忙创建sqlSession）
+     *
+     * @throws IOException
+     */
+    @Test
+    public void testMybatisSpring2() throws IOException {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserMapper userMapper = context.getBean("userMapper2", UserMapper.class);
+
+        System.out.println(userMapper.selectUser());
+    }
+
 
     @Test
     public void testMybatis() throws IOException {
@@ -43,6 +57,5 @@ public class MyTest {
 
 
     }
-
 
 }
